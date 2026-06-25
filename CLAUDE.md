@@ -58,7 +58,13 @@ Routes use Marshmallow schemas for both directions:
 ### Database
 SQLite in development (`instance/pipelinepal.db`, git-ignored). The `instance/` folder is managed by Flask automatically. After adding or changing models, run `db.create_all()` in the flask shell — it only creates missing tables and does not touch existing ones.
 
-### Planned additions (not yet implemented)
-- `@jwt_required()` on all application routes (auth endpoints done, protection not yet applied)
-- React + TypeScript frontend exists at `frontend/` (Vite + React + TypeScript), actively being built
+### Frontend
+React + TypeScript frontend at `frontend/` (Vite + React + TypeScript + Tailwind CSS).
+- Auth flow: register, login, logout with JWT stored in localStorage
+- Protected routes via `ProtectedRoute` component
+- Axios interceptor in `api.ts` attaches token to every request and handles 401/422 by clearing token and redirecting to login
+- Dashboard: full CRUD, search/filter, loading/empty/error states, modal for adding applications
+
+### Planned additions
 - PostgreSQL for production (swap `SQLALCHEMY_DATABASE_URI` in config/env)
+- CI/CD pipeline + full deployment (frontend: Vercel, backend: Render)
