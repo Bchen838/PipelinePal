@@ -1,6 +1,6 @@
 from flask import Flask
 from config import DevelopmentConfig
-from app.extensions import db, ma, jwt
+from app.extensions import db, ma, jwt, cors
 
 
 def create_app():
@@ -16,5 +16,7 @@ def create_app():
 
     from app.routes.auth import auth_bp
     app.register_blueprint(auth_bp)
+
+    cors.init_app(app)
 
     return app

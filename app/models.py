@@ -5,6 +5,7 @@ from typing import Optional
 class JobApplication(db.Model):
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(db.ForeignKey('user.id'), nullable=False)
     company: Mapped[str] = mapped_column(db.String(200), nullable=False)
     role: Mapped[str] = mapped_column(db.String(200), nullable=False)
     status: Mapped[str] = mapped_column(db.String(50), nullable=False)
