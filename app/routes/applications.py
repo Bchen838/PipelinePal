@@ -16,7 +16,7 @@ applications_schema = JobApplicationSchema(many=True)
 def get_applications():
     applications = db.session.execute(db.select(JobApplication).where(JobApplication.user_id == int(get_jwt_identity()))).scalars().all()
 
-    return jsonify(applications_schema.dump(applications))
+    return jsonify(applications_schema.dump(applications)), 200
 
 # CREATE a new application
 @applications_bp.route('/applications', methods=['POST'])
