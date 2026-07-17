@@ -86,6 +86,7 @@ function Dashboard() {
 
     const handleSave = async () => {
         try {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const { id, date_updated, ...updateData } = editForm!
             const response = await api.put(`/applications/${editingId}`, updateData)
             setApplication(application.map((app) => app.id === editingId ? response.data : app))
