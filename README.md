@@ -1,6 +1,13 @@
 # PipelinePal
 
+![CI](https://github.com/Bchen838/PipelinePal/actions/workflows/backend-tests.yml/badge.svg)
+
 A full-stack job application tracker built with Flask and React. Track your applications, update statuses, and search your pipeline — all in one place.
+
+## Live Demo
+
+- **App:** https://pipeline-pal-bice.vercel.app
+- **API:** https://pipelinepal-backend.onrender.com
 
 ## Screenshots
 
@@ -73,10 +80,24 @@ db.create_all()
 exit()
 ```
 
+## Testing
+
+The backend has a pytest suite covering authentication and job application CRUD, including per-user authorization checks (one user can't read/edit/delete another user's applications).
+
+```bash
+source venv/bin/activate
+pytest
+```
+
+Tests run against an in-memory SQLite database via a shared `client` fixture, so they never touch your local `pipelinepal.db`. GitHub Actions runs the full suite automatically on every push and pull request to `main` (see the badge at the top of this README).
+
 ## Project Structure
 
 ```
 PipelinePal/
+├── .github/
+│   └── workflows/
+│       └── backend-tests.yml  # CI: runs pytest on push/PR
 ├── app/
 │   ├── __init__.py        # Application factory
 │   ├── extensions.py      # Flask extensions
@@ -94,5 +115,9 @@ PipelinePal/
 │       │   └── ProtectedRoute.tsx
 │       ├── api.ts         # Axios instance with interceptors
 │       └── App.tsx        # Router setup
+├── tests/
+│   ├── conftest.py        # Shared fixtures (client, auth_headers)
+│   ├── test_auth.py       # Register/login tests
+│   └── test_applications.py # CRUD + authorization tests
 └── run.py
 ```
