@@ -3,7 +3,7 @@ import os
 
 class DevelopmentConfig:
     SQLALCHEMY_DATABASE_URI = 'sqlite:///pipelinepal.db'
-    JWT_SECRET_KEY = 'dev-secret-key'
+    JWT_SECRET_KEY = 'a5fec00c1e5fe10239d1f53a6137669472022292c877addfe5556710caf872c3'
 
 
 class ProductionConfig:
