@@ -107,3 +107,15 @@ def test_unauthorized_access(client, auth_headers):
 
     response2 = client.get(f'/applications/{user1_id}', headers={'Authorization': f'Bearer {token}'})
     assert response2.status_code == 403
+
+
+def test_create_application_missing_fields(client, auth_headers):
+    response = client.post('/applications', headers=auth_headers, json={
+        'company': 'Google',
+        'role': 'Software Engineer',
+        'status': 'Applied',
+    })
+
+    data = response.get_json()
+    assert response.status_code == 400
+    assert 'date_applied' in data['message']
