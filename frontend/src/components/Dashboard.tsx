@@ -135,12 +135,17 @@ function Dashboard() {
                                 value={role}
                                 onChange={(e) => setRole(e.target.value)}
                             />
-                            <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                type='text'
-                                placeholder='Status'
+                            <select className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 value={status}
                                 onChange={(e) => setStatus(e.target.value)}
-                            />
+                                >
+                                    <option value=''>Select Status</option>
+                                    <option value='Applied'>Applied</option>
+                                    <option value='Interviewing'>Interviewing</option>
+                                    <option value='Offer'>Offer</option>
+                                    <option value='Rejected'>Rejected</option>
+                                    <option value='Withdrawn'>Withdrawn</option>
+                            </select>
                             <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 type='date'
                                 placeholder='Date Applied'
@@ -192,7 +197,14 @@ function Dashboard() {
                                 <div className="flex flex-col gap-3">
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.company || ''} onChange={(e) => setEditForm({...editForm!, company: e.target.value})} />
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.role || ''} onChange={(e) => setEditForm({...editForm!, role: e.target.value})} />
-                                    <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.status || ''} onChange={(e) => setEditForm({...editForm!, status: e.target.value})} />
+                                    <select className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.status || ''} onChange={(e) => setEditForm({...editForm!, status: e.target.value})}>
+                                        <option value=''>Select Status</option>
+                                        <option value='Applied'>Applied</option>
+                                        <option value='Interviewing'>Interviewing</option>
+                                        <option value='Offer'>Offer</option>
+                                        <option value='Rejected'>Rejected</option>
+                                        <option value='Withdrawn'>Withdrawn</option>
+                                    </select>
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type='date' value={editForm?.date_applied || ''} onChange={(e) => setEditForm({...editForm!, date_applied: e.target.value})} />
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.location || ''} onChange={(e) => setEditForm({...editForm!, location: e.target.value})} />
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.notes || ''} onChange={(e) => setEditForm({...editForm!, notes: e.target.value})} />

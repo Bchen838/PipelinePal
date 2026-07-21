@@ -119,3 +119,14 @@ def test_create_application_missing_fields(client, auth_headers):
     data = response.get_json()
     assert response.status_code == 400
     assert 'date_applied' in data['message']
+
+
+def test_create_application_invalid_status(client, auth_headers):
+    response = client.post('/applications', headers=auth_headers, json={
+        'company': 'Google',
+        'role': 'Software Engineer',
+        'status': 'Ghosted',
+        'date_applied': '2026-07-16'
+    })
+
+    assert response.status_code == 400
