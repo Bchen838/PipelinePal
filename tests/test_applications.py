@@ -10,13 +10,13 @@ def test_create_application(client, auth_headers):
         'company': 'Google',
         'role': 'Software Engineer',
         'status': 'Applied',
-        'date_applied': '7/16/2026'
+        'date_applied': '2026-07-16'
     })
     data = response.get_json()
     assert data['company'] == 'Google'
     assert data['role'] == 'Software Engineer'
     assert data['status'] == 'Applied'
-    assert data['date_applied'] == '7/16/2026'
+    assert data['date_applied'] == '2026-07-16'
     assert 'id' in data
 
     assert response.status_code == 201
@@ -28,7 +28,7 @@ def test_get_single_application(client, auth_headers):
         'company': 'Google',
         'role': 'Software Engineer',
         'status': 'Applied',
-        'date_applied': '7/16/2026'
+        'date_applied': '2026-07-16'
     })
 
     data = response.get_json()
@@ -40,7 +40,7 @@ def test_get_single_application(client, auth_headers):
     assert data2['company'] == 'Google'
     assert data2['role'] == 'Software Engineer'
     assert data2['status'] == 'Applied'
-    assert data2['date_applied'] == '7/16/2026'
+    assert data2['date_applied'] == '2026-07-16'
     assert 'id' in data2
 
 
@@ -49,7 +49,7 @@ def test_update_application(client, auth_headers):
         'company': 'Google',
         'role': 'Software Engineer',
         'status': 'Applied',
-        'date_applied': '7/16/2026'
+        'date_applied': '2026-07-16'
     })
 
     data = response.get_json()
@@ -70,7 +70,7 @@ def test_delete_application(client, auth_headers):
         'company': 'Google',
         'role': 'Software Engineer',
         'status': 'Applied',
-        'date_applied': '7/16/2026'
+        'date_applied': '2026-07-16'
     })
 
     data = response.get_json()
@@ -88,7 +88,7 @@ def test_unauthorized_access(client, auth_headers):
         'company': 'Google',
         'role': 'Software Engineer',
         'status': 'Applied',
-        'date_applied': '7/16/2026'
+        'date_applied': '2026-07-16'
     })
 
     user1_id = user1.get_json()['id']

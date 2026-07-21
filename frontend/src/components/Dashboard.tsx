@@ -142,7 +142,7 @@ function Dashboard() {
                                 onChange={(e) => setStatus(e.target.value)}
                             />
                             <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                type='text'
+                                type='date'
                                 placeholder='Date Applied'
                                 value={date_applied}
                                 onChange={(e) => setDateApplied(e.target.value)}
@@ -193,7 +193,7 @@ function Dashboard() {
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.company || ''} onChange={(e) => setEditForm({...editForm!, company: e.target.value})} />
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.role || ''} onChange={(e) => setEditForm({...editForm!, role: e.target.value})} />
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.status || ''} onChange={(e) => setEditForm({...editForm!, status: e.target.value})} />
-                                    <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.date_applied || ''} onChange={(e) => setEditForm({...editForm!, date_applied: e.target.value})} />
+                                    <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" type='date' value={editForm?.date_applied || ''} onChange={(e) => setEditForm({...editForm!, date_applied: e.target.value})} />
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.location || ''} onChange={(e) => setEditForm({...editForm!, location: e.target.value})} />
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.notes || ''} onChange={(e) => setEditForm({...editForm!, notes: e.target.value})} />
                                     <input className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" value={editForm?.url || ''} onChange={(e) => setEditForm({...editForm!, url: e.target.value})} />

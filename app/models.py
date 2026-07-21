@@ -1,6 +1,7 @@
 from app.extensions import db
 from sqlalchemy.orm import Mapped, mapped_column
 from typing import Optional
+from datetime import date
 
 class JobApplication(db.Model):
 
@@ -9,8 +10,8 @@ class JobApplication(db.Model):
     company: Mapped[str] = mapped_column(db.String(200), nullable=False)
     role: Mapped[str] = mapped_column(db.String(200), nullable=False)
     status: Mapped[str] = mapped_column(db.String(50), nullable=False)
-    date_applied: Mapped[str] = mapped_column(db.String(20), nullable=False)
-    date_updated: Mapped[str] = mapped_column(db.String(20), nullable=False)
+    date_applied: Mapped[date] = mapped_column(db.Date(), nullable=False)
+    date_updated: Mapped[date] = mapped_column(db.Date(), nullable=False)
     location: Mapped[Optional[str]] = mapped_column(db.String(400))
     notes: Mapped[Optional[str]] = mapped_column(db.String(1000))
     url: Mapped[Optional[str]] = mapped_column(db.String(500))

@@ -24,7 +24,7 @@ def get_applications():
 def create_application():
     data = request.get_json()
     new_application = application_schema.load(data)
-    new_application.date_updated = date.today().isoformat()
+    new_application.date_updated = date.today()
     new_application.user_id = int(get_jwt_identity())
     db.session.add(new_application)
     db.session.commit()
